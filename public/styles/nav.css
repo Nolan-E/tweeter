@@ -1,0 +1,16 @@
+nav {
+  height: 120px;
+  color: white;
+  background-color: #4056a1;
+  font-size: 24px;
+  font-family: 'Source Sans Pro', sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+
+span {
+  display: flex;
+  align-items: center;
+  font-family: 'Bungee', cursive;
+  margin: 1.5em;
+ }
