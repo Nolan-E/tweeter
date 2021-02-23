@@ -2,8 +2,8 @@ header {
   height: 400px;
   width: 100%;
   color: white;
-  background-color: hsl(44, 48%, 61%);
-  background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
+  background-color: #757ea1;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
   display: flex;

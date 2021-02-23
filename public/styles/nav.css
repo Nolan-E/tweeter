@@ -7,11 +7,27 @@ nav {
   font-family: 'Source Sans Pro', sans-serif;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-span {
+
+.nav-bar-compose-textbox {
+  margin: 1.5em;
   display: flex;
+  flex-direction: column;
   align-items: center;
+}
+
+.nav-bar-compose-arrow {
+  font-weight: bold;
+  color: red;
+}
+
+.nav-bar-compose-write {
+  font-weight: bold;
+}
+
+#nav-brand {
   font-family: 'Bungee', cursive;
   margin: 1.5em;
- }
+}
