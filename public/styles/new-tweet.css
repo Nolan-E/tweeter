@@ -37,3 +37,7 @@ form {
   color: white;
   border: none;
 }
+
+#limit-exceed {
+  color: red;
+}
