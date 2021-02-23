@@ -1,0 +1,39 @@
+section {
+  width: 100%;
+}
+
+form {
+  width: 100%;
+  color: #545149;
+  background-color: #f4f1ec;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* border: 1px solid #545149; */
+}
+
+.compose-tweet-div {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Bungee', cursive;
+}
+
+.compose-tweet-label {
+  font-weight: bold;
+}
+
+.compose-tweet-textarea {
+  height: 40px;
+  margin: 10px 0;
+  outline: none;
+  border: none;
+  border-bottom: 5px solid #545149;
+  resize: none;
+  background: transparent;
+}
+
+.compose-tweet-button {
+  background-color: #4056a1;
+  color: white;
+  border: none;
+}
