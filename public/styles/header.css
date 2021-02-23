@@ -1,5 +1,6 @@
 header {
   height: 400px;
+  width: 100%;
   color: white;
   /* background-color: #4056a1; */
   background-color: hsl(44, 48%, 61%);
