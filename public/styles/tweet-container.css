@@ -9,6 +9,11 @@
   flex-direction: column;
 }
 
+.tweets-feed:hover {
+  box-shadow: 10px 10px #4057a183;
+  text-shadow: 0 0 #565351;
+}
+
 .tweets-feed-user {
   margin: 10px;
 }
@@ -24,9 +29,9 @@
   align-items: center;
 }
 
-.tweets-feed-handle {
+/* .tweets-feed-handle {
   
-}
+} */
 
 .tweets-feed-body {
   border-bottom: 4px solid #545149;
