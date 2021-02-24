@@ -1,6 +1,5 @@
-section {
+/* section {
   width: 100%;
-  margin-bottom: 2em;
 }
 
 form {
@@ -9,9 +8,19 @@ form {
   background-color: #f4f1ec;
   display: flex;
   flex-direction: column;
-}
+} */
 
-.compose-tweet-div {
+/**/
+.tweets-feed {
+  width: 100%;
+  color: #545149;
+  background-color: #f4f1ec;
+  display: flex;
+  flex-direction: column;
+}
+/**/
+
+/* .compose-tweet-div {
   display: flex;
   justify-content: space-between;
   font-family: 'Bungee', cursive;
@@ -39,4 +48,4 @@ form {
 
 #limit-exceed {
   color: red;
-}
+} */
