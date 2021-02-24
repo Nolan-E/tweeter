@@ -13,10 +13,29 @@ form {
 /**/
 .tweets-feed {
   width: 100%;
+  padding: 1em 0.5em;
   color: #545149;
   background-color: #f4f1ec;
+  border: 4px solid #545149;
   display: flex;
   flex-direction: column;
+}
+
+.tweets-feed-name {
+  
+}
+
+.tweets-feed-body {
+  border-bottom: 4px solid #545149;
+}
+
+.tweets-feed-text {
+  margin: 1em 0.5em;
+}
+
+.tweets-feed-data {
+  margin: 0.5em 0.75em 0 0.75em;
+  font-size: 0.75em;
 }
 /**/
 
