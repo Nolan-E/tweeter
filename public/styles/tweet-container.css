@@ -11,8 +11,9 @@
 
 .tweets-feed:hover {
   box-shadow: 10px 10px #4057a183;
-  text-shadow: 0 0 #565351;
+  text-shadow: 0 0 #444139;
 }
+
 
 .tweets-feed-user {
   margin: 10px;
@@ -29,9 +30,15 @@
   align-items: center;
 }
 
-/* .tweets-feed-handle {
-  
-} */
+.tweets-feed-handle {
+  padding-right: 0.5em;
+  color: #4056a1;
+  opacity: 0;
+}
+
+.tweets-feed:hover .tweets-feed-handle {
+  opacity: 30%;
+}
 
 .tweets-feed-body {
   border-bottom: 4px solid #545149;
