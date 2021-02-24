@@ -76,17 +76,14 @@ const renderTweets = function(tweetArr) {
 $(document).ready(function() {
   renderTweets(data);
 
+  $("#tweet-submit").on("submit", function(event) {
+    event.preventDefault();
+    $.ajax({
+      url: '/tweets/',
+      method: 'POST'
+    }).then((result) => {
+      console.log(result);
+    })
+    // $('#tweet-container').append($tweet);
+  });
 });
-
-// $(document).ready(function() {
-//   $(".compose-tweet-button").on("submit", function(event) {
-//     event.preventDefault();
-//     $.ajax({
-//       url: '/',
-//       method: 'GET'
-//     }).then((result) => {
-
-//     })
-//     $('#tweet-container').append($tweet);
-//   });
-// });
