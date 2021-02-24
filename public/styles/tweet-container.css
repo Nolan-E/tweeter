@@ -1,16 +1,4 @@
-/* section {
-  width: 100%;
-}
 
-form {
-  width: 100%;
-  color: #545149;
-  background-color: #f4f1ec;
-  display: flex;
-  flex-direction: column;
-} */
-
-/**/
 .tweets-feed {
   width: 100%;
   padding: 1em 0.5em;
@@ -21,7 +9,22 @@ form {
   flex-direction: column;
 }
 
+.tweets-feed-user {
+  margin: 10px;
+}
+
+.tweets-feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .tweets-feed-name {
+  display: flex;
+  align-items: center;
+}
+
+.tweets-feed-handle {
   
 }
 
@@ -36,35 +39,21 @@ form {
 .tweets-feed-data {
   margin: 0.5em 0.75em 0 0.75em;
   font-size: 0.75em;
-}
-/**/
-
-/* .compose-tweet-div {
   display: flex;
   justify-content: space-between;
-  font-family: 'Bungee', cursive;
 }
 
-.compose-tweet-label {
-  font-weight: bold;
+.tweets-feed-flag {
+  margin: 0.25em;
+  color: #4056a1;
 }
 
-.compose-tweet-textarea {
-  height: 40px;
-  margin: 10px 0;
-  outline: none;
-  border: none;
-  border-bottom: 5px solid #545149;
-  resize: none;
-  background: transparent;
+.tweets-feed-retweet {
+  margin: 0.25em;
+  color: #4056a1;
 }
 
-.compose-tweet-button {
-  background-color: #4056a1;
-  color: white;
-  border: none;
+.tweets-feed-heart {
+  margin: 0.25em;
+  color: #4056a1;
 }
-
-#limit-exceed {
-  color: red;
-} */

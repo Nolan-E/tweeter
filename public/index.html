@@ -18,6 +18,7 @@
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/886e95519e.js" crossorigin="anonymous"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
@@ -32,7 +33,7 @@
         <div>
           <span class="nav-bar-compose-write"> Write</span> a new tweet
         </div>
-        <div class="nav-bar-compose-arrow">&#8595</div>
+        <div class="nav-bar-compose-arrow"><i class="fas fa-angle-double-down"></i></div>
       </div>
     </nav>
 
@@ -61,11 +62,20 @@
       </section>
       <section class="tweet-container">
         <article class="tweets-feed">
-          <header class="tweets-feed-name">Newt</header>
+          <header class="tweets-feed-header">
+            <div class="tweets-feed-name">
+              <i class='fas fa-user-astronaut tweets-feed-user' style='font-size:36px'></i> Newt
+            </div>
+            <span class="tweets-feed-handle">@SirIsaac</span>
+          </header>
           <div class="tweets-feed-body">
             <p class="tweets-feed-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, ullam?</p>
           </div>
-          <footer class="tweets-feed-data">5 days ago</footer>
+          <footer class="tweets-feed-data">5 days ago
+            <div>
+              <span class="tweets-feed-flag"><i class="fas fa-flag"></i></span> <span class="tweets-feed-retweet"><i class="fas fa-retweet"></i></span><span class="tweets-feed-heart"><i class="fas fa-heart"></i></span>
+            </div>
+          </footer>
         </article>
       </section>
     </main>
