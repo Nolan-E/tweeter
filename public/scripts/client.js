@@ -78,12 +78,14 @@ $(document).ready(function() {
 
   $("#tweet-submit").on("submit", function(event) {
     event.preventDefault();
+    const str = $('#tweet-submit').serialize();
     $.ajax({
+      data: str,
       url: '/tweets/',
       method: 'POST'
     }).then((result) => {
-      console.log(result);
+      console.log('success!');
+      // $('#tweet-container').append(createTweetElement());
     })
-    // $('#tweet-container').append($tweet);
   });
 });
