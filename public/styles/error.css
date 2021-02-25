@@ -1,0 +1,15 @@
+.hidden-error {
+  display: none;
+}
+
+.new-tweet-error {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+  border: 3px solid red;
+}
+
+.h3-error-msg {
+  margin: 0.25em;
+  color: red;
+}
