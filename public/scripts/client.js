@@ -17,6 +17,24 @@ const escape = function(str) {
   return div.innerHTML;
 };
 
+// remove class to unhide error & slide element down
+const generateError = (err) => {
+  $('.new-tweet-error').removeClass('hidden-error');
+  $('.new-tweet-error h3').html(err);
+  $('.error-slide').slideDown(400);
+};
+
+// click "write a new tweet" button and slide compose
+// tweet, then focus text area
+const slideCompose = () => {
+  $('.new-tweet').hide();
+  $('.nav-bar-compose-textbox').on('click', () => {
+    $('.new-tweet').slideToggle(400, () => {
+      $('#tweet-text').focus();
+    });
+  });
+};
+
 // Create DOM elements
 const createTweetElement = function(tweetObj) {
   const $tweet = $(
@@ -37,24 +55,6 @@ const createTweetElement = function(tweetObj) {
       </footer>
     </article>`);
   return $tweet;
-};
-
-// remove class to unhide error & slide element down
-const generateError = (err) => {
-  $('.new-tweet-error').removeClass('hidden-error');
-  $('.new-tweet-error h3').html(err);
-  $('.error-slide').slideDown(400);
-};
-
-// click "write a new tweet" button and slide compose
-// tweet, then focus text area
-const slideCompose = () => {
-  $('.new-tweet').hide();
-  $('.nav-bar-compose-textbox').on('click', () => {
-    $('.new-tweet').slideToggle(400, () => {
-      $('#tweet-text').focus();
-    });
-  });
 };
 
 // render tweet from database object into DOM elements
@@ -81,6 +81,7 @@ $(document).ready(function() {
   
   $("#tweet-submit").on("submit", function(event) {
     event.preventDefault();
+
     if (!$('#tweet-text').val()) {
       generateError('Cannot create an empty tweet!');
       return;
@@ -89,19 +90,24 @@ $(document).ready(function() {
       generateError('Cannot create tweet. Character limit exceeded!');
       return;
     }
+
     $('.error-slide').slideUp(400, () => {
       $('.new-tweet-error').addClass('hidden-error');
     });
+
     const str = $('#tweet-submit').serialize();
+
     $.ajax({
       data: str,
       url: '/tweets/',
       method: 'POST'
-    }).then(() => {
+    })
+    .then(() => {
       $.ajax({
         url: '/tweets/',
         method: 'GET'
-      }).then((data) => {
+      })
+      .then((data) => {
         const $newTweet = createTweetElement(data[data.length - 1]);
         $('#tweet-container').prepend($newTweet);
         $('#tweet-text').val('');
