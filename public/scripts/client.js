@@ -53,7 +53,6 @@ $(document).ready(function() {
       url: '/tweets/',
       method: 'GET'
     }).then((data) => {
-      console.log('hello')
       renderTweets(data);
     });
   };
@@ -66,8 +65,6 @@ $(document).ready(function() {
       data: str,
       url: '/tweets/',
       method: 'POST'
-    }).then((result) => {
-      console.log('success!');
     })
   });
 });
