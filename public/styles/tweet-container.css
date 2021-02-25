@@ -8,6 +8,7 @@
   border: 4px solid #545149;
   display: flex;
   flex-direction: column;
+  word-wrap: anywhere;
 }
 
 .tweets-feed:hover {

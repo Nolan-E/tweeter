@@ -21,7 +21,7 @@ const escape = function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
 // Create DOM elements
 const createTweetElement = function(tweetObj) {
