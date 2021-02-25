@@ -51,8 +51,10 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <div class="hidden-error new-tweet-error">
-          <h3 class="h3-error-msg">DING DING DING DING!</h3>
+        <div class="error-slide">
+          <div class="hidden-error new-tweet-error">
+            <i class="fas fa-exclamation-triangle"></i><h3></h3><i class="fas fa-exclamation-triangle"></i>
+          </div>
         </div>
         <h2>Compose Tweet</h2>
         <form id="tweet-submit" action="/tweets/" method="POST">

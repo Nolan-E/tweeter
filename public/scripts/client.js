@@ -45,6 +45,13 @@ const createTweetElement = function(tweetObj) {
   return $tweet;
 };
 
+// remove class to unhide error & slide element down
+const generateError = (err) => {
+  $('.new-tweet-error').removeClass('hidden-error');
+  $('.new-tweet-error h3').html(err);
+  $('.error-slide').slideDown('slow');
+};
+
 // render tweet from database object into DOM elements
 const renderTweets = function(tweetArr) {
   for (const tweet of tweetArr) {
@@ -70,15 +77,17 @@ $(document).ready(function() {
   $("#tweet-submit").on("submit", function(event) {
     event.preventDefault();
     if (!$('#tweet-text').val()) {
-      alert('Cannot create an empty tweet!');
+      generateError('Cannot create an empty tweet!');
       return;
     }
     if ($('#tweet-text').val().length > 140) {
-      alert('Cannot create tweet. Character limit exceeded!');
+      generateError('Cannot create tweet. Character limit exceeded!');
       return;
     }
+    $('.error-slide').slideUp('slow', () => {
+      $('.new-tweet-error').addClass('hidden-error');
+    });
     const str = $('#tweet-submit').serialize();
-    console.log(str)
     $.ajax({
       data: str,
       url: '/tweets/',
