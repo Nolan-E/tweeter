@@ -46,7 +46,9 @@ const renderTweets = function(tweetArr) {
   }
 };
 
-// doc ready check with function invocation
+// doc ready check with function invocation:
+// 1st: Load tweets from database
+// 2nd: Post new tweet to database on form submit
 $(document).ready(function() {
   const loadTweets = function() {
     $.ajax({
@@ -60,6 +62,17 @@ $(document).ready(function() {
 
   $("#tweet-submit").on("submit", function(event) {
     event.preventDefault();
+    
+    if (!$('#tweet-text').val()) {
+      alert('Cannot create an empty tweet!');
+      return;
+    }
+
+    if ($('#tweet-text').val().length > 140) {
+      alert('Cannot create tweet. Character limit exceeded!');
+      return;
+    }
+
     const str = $('#tweet-submit').serialize();
     $.ajax({
       data: str,
