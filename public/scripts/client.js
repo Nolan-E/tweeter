@@ -4,32 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// TEST DATA
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1614203156000
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1613199600000
-  }
-];
-
 // IMPLEMENT FUNCTIONS
 // Calculate days ago
 const daysAgo = function(createdTimestamp) {
@@ -74,7 +48,16 @@ const renderTweets = function(tweetArr) {
 
 // doc ready check with function invocation
 $(document).ready(function() {
-  renderTweets(data);
+  const loadTweets = function() {
+    $.ajax({
+      url: '/tweets/',
+      method: 'GET'
+    }).then((data) => {
+      console.log('hello')
+      renderTweets(data);
+    });
+  };
+  loadTweets();
 
   $("#tweet-submit").on("submit", function(event) {
     event.preventDefault();
@@ -85,7 +68,6 @@ $(document).ready(function() {
       method: 'POST'
     }).then((result) => {
       console.log('success!');
-      // $('#tweet-container').append(createTweetElement());
     })
   });
 });
