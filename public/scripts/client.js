@@ -41,8 +41,8 @@ const daysAgo = function(createdTimestamp) {
 // render tweet from database object into DOM elements
 const renderTweets = function(tweetArr) {
   for (const tweet of tweetArr) {
-    const tweetToAppend = createTweetElement(tweet);
-    $('#tweet-container').append(tweetToAppend);
+    const $tweetToAppend = createTweetElement(tweet);
+    $('#tweet-container').prepend($tweetToAppend);
   }
 };
 
@@ -74,10 +74,21 @@ $(document).ready(function() {
     }
 
     const str = $('#tweet-submit').serialize();
+
     $.ajax({
       data: str,
       url: '/tweets/',
       method: 'POST'
+    }).then(() => {
+      $.ajax({
+        url: '/tweets/',
+        method: 'GET'
+      }).then((data) => {
+        const $newTweet = createTweetElement(data[data.length - 1]);
+        $('#tweet-container').prepend($newTweet);
+        $('#tweet-text').val('');
+        $('.new-tweet .compose-tweet-div .counter').val(140);
+      })
     })
   });
 });
