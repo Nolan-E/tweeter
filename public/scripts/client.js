@@ -1,9 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 // IMPLEMENT FUNCTIONS
 // Calculate days ago
 const daysAgo = function(createdTimestamp) {
@@ -49,7 +43,18 @@ const createTweetElement = function(tweetObj) {
 const generateError = (err) => {
   $('.new-tweet-error').removeClass('hidden-error');
   $('.new-tweet-error h3').html(err);
-  $('.error-slide').slideDown('slow');
+  $('.error-slide').slideDown(400);
+};
+
+// click "write a new tweet" button and slide compose
+// tweet, then focus text area
+const slideCompose = () => {
+  $('.new-tweet').hide();
+  $('.nav-bar-compose-textbox').on('click', () => {
+    $('.new-tweet').slideToggle(400, () => {
+      $('#tweet-text').focus();
+    });
+  });
 };
 
 // render tweet from database object into DOM elements
@@ -60,9 +65,7 @@ const renderTweets = function(tweetArr) {
   }
 };
 
-// doc ready check with function invocation:
-// 1st: Load tweets from database
-// 2nd: Post new tweet to database on form submit
+// doc ready check with function invocations & Ajax
 $(document).ready(function() {
   const loadTweets = function() {
     $.ajax({
@@ -74,6 +77,8 @@ $(document).ready(function() {
   };
   loadTweets();
 
+  slideCompose();
+  
   $("#tweet-submit").on("submit", function(event) {
     event.preventDefault();
     if (!$('#tweet-text').val()) {
@@ -84,7 +89,7 @@ $(document).ready(function() {
       generateError('Cannot create tweet. Character limit exceeded!');
       return;
     }
-    $('.error-slide').slideUp('slow', () => {
+    $('.error-slide').slideUp(400, () => {
       $('.new-tweet-error').addClass('hidden-error');
     });
     const str = $('#tweet-submit').serialize();
