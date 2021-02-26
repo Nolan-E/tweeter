@@ -51,7 +51,6 @@ This repository is the starter code for the project: Students will fork and clon
 ****
 ## Known Issues
 
-- In a full desktop  window media layout, "header" background doesn't stretch all of the way to the bottom without posting more tweets in the feed.
 - Enter key creates new line in the compose new tweet box.
 ****
 ## Future Updates
