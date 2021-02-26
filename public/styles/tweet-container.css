@@ -59,15 +59,27 @@
 
 .tweets-feed-flag {
   margin: 0.25em;
-  color: #4056a1;
+  color: #545149;
 }
 
 .tweets-feed-retweet {
   margin: 0.25em;
-  color: #4056a1;
+  color: #545149;
 }
 
 .tweets-feed-heart {
   margin: 0.25em;
+  color: #545149;
+}
+
+.tweets-feed:hover .tweets-feed-retweet {
+  color: #4056a1;
+}
+
+.tweets-feed:hover .tweets-feed-flag {
+  color: #4056a1;
+}
+
+.tweets-feed:hover .tweets-feed-heart {
   color: #4056a1;
 }
