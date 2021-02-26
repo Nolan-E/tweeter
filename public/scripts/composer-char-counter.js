@@ -1,3 +1,4 @@
+// Compose tweet character counter
 $(document).ready(function() {
   $("#tweet-text").on("keyup", counterUpdater);
 });

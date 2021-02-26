@@ -1,6 +1,6 @@
 // IMPLEMENT FUNCTIONS
 // Calculate days ago
-const daysAgo = function(createdTimestamp) {
+const daysAgo = (createdTimestamp) => {
   const timeAgo = Math.floor(((Date.parse(new Date) - createdTimestamp) / 1000) / (3600 * 24));
   if (timeAgo === 1) {
     return `${timeAgo} day ago`;
@@ -11,7 +11,7 @@ const daysAgo = function(createdTimestamp) {
 };
 
 // Escape unsafe characters
-const escape = function(str) {
+const escape = (str) => {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -24,8 +24,7 @@ const generateError = (err) => {
   $('.error-slide').slideDown(400);
 };
 
-// click "write a new tweet" button and slide compose
-// tweet, then focus text area
+// click "write a new tweet" button and slide compose tweet, then focus text area
 const slideCompose = () => {
   $('.new-tweet').hide();
   $('.nav-bar-compose-textbox').on('click', () => {
@@ -36,7 +35,7 @@ const slideCompose = () => {
 };
 
 // Create DOM elements
-const createTweetElement = function(tweetObj) {
+const createTweetElement = (tweetObj) => {
   const $tweet = $(
     `<article class="tweets-feed">
       <header class="tweets-feed-header">
@@ -58,7 +57,7 @@ const createTweetElement = function(tweetObj) {
 };
 
 // render tweet from database object into DOM elements
-const renderTweets = function(tweetArr) {
+const renderTweets = (tweetArr) => {
   for (const tweet of tweetArr) {
     const $tweetToAppend = createTweetElement(tweet);
     $('#tweet-container').prepend($tweetToAppend);
@@ -66,8 +65,8 @@ const renderTweets = function(tweetArr) {
 };
 
 // doc ready check with function invocations & Ajax
-$(document).ready(function() {
-  const loadTweets = function() {
+$(document).ready(() => {
+  const loadTweets = () => {
     $.ajax({
       url: '/tweets/',
       method: 'GET'
@@ -75,11 +74,11 @@ $(document).ready(function() {
       renderTweets(data);
     });
   };
-  loadTweets();
 
+  loadTweets();
   slideCompose();
   
-  $("#tweet-submit").on("submit", function(event) {
+  $("#tweet-submit").on("submit", (event) => {
     event.preventDefault();
 
     if (!$('#tweet-text').val()) {
@@ -90,29 +89,27 @@ $(document).ready(function() {
       generateError('Cannot create tweet. Character limit exceeded!');
       return;
     }
-
-    $('.error-slide').slideUp(400, () => {
-      $('.new-tweet-error').addClass('hidden-error');
-    });
-
+    // Ajax POST request & promise chain on resolution of tweet submission
     const str = $('#tweet-submit').serialize();
-
     $.ajax({
       data: str,
       url: '/tweets/',
       method: 'POST'
-    })
-    .then(() => {
+    }).then(() => {
       $.ajax({
         url: '/tweets/',
         method: 'GET'
-      })
-      .then((data) => {
+      }).then((data) => {
         const $newTweet = createTweetElement(data[data.length - 1]);
+        // Clears error message after valid tweet is posted
+        $('.error-slide').slideUp(400, () => {
+          $('.new-tweet-error').addClass('hidden-error');
+        });
+        // Refreshes tweet feed without page reload
         $('#tweet-container').prepend($newTweet);
         $('#tweet-text').val('');
         $('.new-tweet .compose-tweet-div .counter').val(140);
-      });
+      }).catch(err => console.log(err));
     });
   });
 });
