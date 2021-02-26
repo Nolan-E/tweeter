@@ -19,7 +19,6 @@ const escape = (str) => {
 
 // remove class to unhide error & slide element down
 const generateError = (err) => {
-  $('.new-tweet-error').removeClass('hidden-error');
   $('.new-tweet-error h3').html(err);
   $('.error-slide').slideDown(400);
 };
@@ -102,9 +101,7 @@ $(document).ready(() => {
       }).then((data) => {
         const $newTweet = createTweetElement(data[data.length - 1]);
         // Clears error message after valid tweet is posted
-        $('.error-slide').slideUp(400, () => {
-          $('.new-tweet-error').addClass('hidden-error');
-        });
+        $('.error-slide').slideUp(400);
         // Refreshes tweet feed without page reload
         $('#tweet-container').prepend($newTweet);
         $('#tweet-text').val('');

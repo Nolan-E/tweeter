@@ -41,6 +41,7 @@
       </div>
     </nav>
 
+    <!-- Page-specific (main) content here -->
     <header class="main-header">
       <div>
         <img src="/images/profile-hex.png">
@@ -51,15 +52,13 @@
       </div>
     </header>
 
-    <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
         <div class="error-slide">
-          <div class="hidden-error new-tweet-error">
+          <div class="new-tweet-error">
             <i class="fas fa-exclamation-triangle"></i><h3></h3><i class="fas fa-exclamation-triangle"></i>
           </div>
         </div>
-        <h2>Compose Tweet</h2>
         <form id="tweet-submit" action="/tweets/" method="POST">
           <label class="compose-tweet-label" for="tweet-text">What are you humming about?</label>
           <textarea class="compose-tweet-textarea" name="text" id="tweet-text"></textarea>

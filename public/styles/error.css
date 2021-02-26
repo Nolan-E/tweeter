@@ -11,10 +11,6 @@
   color: red;
 }
 
-.hidden-error {
-  display: none;
-}
-
 .new-tweet-error h3 {
   margin: 0.25em;
 }
