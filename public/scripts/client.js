@@ -79,13 +79,17 @@ $(document).ready(() => {
   
   $("#tweet-submit").on("submit", (event) => {
     event.preventDefault();
-
-    if (!$('#tweet-text').val()) {
+    if (!$('#tweet-text').val().trim()) {
+      // Reset counter & textarea if whitespace was submitted
+      $('#tweet-text').val('');
+      $('.new-tweet .compose-tweet-div .counter').val(140);
       generateError('Cannot create an empty tweet!');
+      $('#tweet-text').focus();
       return;
     }
     if ($('#tweet-text').val().length > 140) {
       generateError('Cannot create tweet. Character limit exceeded!');
+      $('#tweet-text').focus();
       return;
     }
     // Ajax POST request & promise chain on resolution of tweet submission
