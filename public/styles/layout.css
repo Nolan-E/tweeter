@@ -28,26 +28,17 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- .container {
-   width: 90%;
- }
+.container {
+  width: 90%;
+}
 
 @media only screen and (min-width: 1024px) {
   body {
     flex-direction: row;
+    align-items: flex-start;
     margin: 120px 0 0 0;
-    /* flex-grow: 2; */
-    /* background-color: red; */
   }
   .container {
     margin: 0 1em 0 1em;
   }
-  /* @media only screen and (min-width: 1024px) { */
-  /* .main-header {
-    flex-direction: column;
-    width: 25%;
-    background-color: green;
-  } */
-  /* } */
-  
 }
