@@ -13,10 +13,11 @@
   align-items: center;
 }
 
-/* @media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1024px) {
   .main-header {
-    flex-direction: column;
-    width: ;
-    background-color: green;
+    /* flex-direction: column; */
+    /* align-items: flex-start; */
+    width: 33vw;
+    margin: 0 0 0 1em;
   }
-} */
+}

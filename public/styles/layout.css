@@ -35,7 +35,7 @@ body {
 @media only screen and (min-width: 1024px) {
   body {
     flex-direction: row;
-    margin: 120px 0px 0 0;
+    margin: 120px 0 0 0;
     /* flex-grow: 2; */
     /* background-color: red; */
   }
@@ -43,11 +43,11 @@ body {
     margin: 0 1em 0 1em;
   }
   /* @media only screen and (min-width: 1024px) { */
-    .main-header {
-      flex-direction: column;
-      width: ;
-      background-color: green;
-    }
+  /* .main-header {
+    flex-direction: column;
+    width: 25%;
+    background-color: green;
+  } */
   /* } */
   
 }
